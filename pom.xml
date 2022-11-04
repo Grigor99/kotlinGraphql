@@ -20,6 +20,23 @@
 
 	</properties>
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/com.expediagroup/graphql-kotlin-schema-generator -->
+<!--		<dependency>-->
+<!--			<groupId>com.expediagroup</groupId>-->
+<!--			<artifactId>graphql-kotlin-schema-generator</artifactId>-->
+<!--			<version>6.2.5</version>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>com.expediagroup</groupId>-->
+<!--			<artifactId>graphql-kotlin-spring-server</artifactId>-->
+<!--			<version>6.2.5</version>-->
+<!--		</dependency>-->
+
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -40,7 +57,12 @@
 			<groupId>org.jetbrains.kotlin</groupId>
 			<artifactId>kotlin-stdlib-jdk8</artifactId>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/com.netflix.graphql.dgs/graphql-dgs-extended-scalars -->
+		<dependency>
+			<groupId>com.netflix.graphql.dgs</groupId>
+			<artifactId>graphql-dgs-extended-scalars</artifactId>
+			<version>5.0.3</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.netflix.graphql.dgs</groupId>
@@ -56,31 +78,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.graphql-java</groupId>-->
-<!--			<artifactId>graphql-java</artifactId>-->
-<!--			<version>8.0</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.graphql-java</groupId>-->
-<!--			<artifactId>graphiql-spring-boot-starter</artifactId>-->
-<!--			<version>4.0.0</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.graphql-java</groupId>-->
-<!--			<artifactId>graphql-java-tools</artifactId>-->
-<!--			<version>5.0.0</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.graphql-java</groupId>-->
-<!--			<artifactId>graphql-spring-boot-starter</artifactId>-->
-<!--			<version>4.0.0</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.graphql-java</groupId>-->
-<!--			<artifactId>graphql-java-servlet</artifactId>-->
-<!--			<version>5.0.0</version>-->
-<!--		</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-graphql</artifactId>
@@ -89,6 +87,52 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+
+
+
+
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>22.0.0</version>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>com.apollographql.apollo</groupId>-->
+<!--			<artifactId>apollo-runtime</artifactId>-->
+<!--			<version>2.0.3</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.apollographql.apollo3/apollo-api-jvm -->
+<!--		<dependency>-->
+<!--			<groupId>com.apollographql.apollo3</groupId>-->
+<!--			<artifactId>apollo-api-jvm</artifactId>-->
+<!--			<version>3.6.2</version>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>com.apollographql.apollo3</groupId>
+			<artifactId>apollo-api-jvm</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.apollographql.apollo3</groupId>
+			<artifactId>apollo-runtime-jvm</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+
+
+
+
+
+
+
+		<dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphql-java</artifactId>
+			<version>18.3</version>
 		</dependency>
 	</dependencies>
 
@@ -124,6 +168,30 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>com.github.aoudiamoncef</groupId>
+				<artifactId>apollo-client-maven-plugin</artifactId>
+				<version>5.0.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<services>
+								<example-api>
+									<compilationUnit>
+										<name>example</name>
+										<compilerParams>
+											<schemaPackageName>example.org</schemaPackageName>
+										</compilerParams>
+									</compilationUnit>
+								</example-api>
+							</services>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

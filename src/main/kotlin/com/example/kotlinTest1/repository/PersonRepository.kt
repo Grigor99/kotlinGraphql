@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface PersonRepository : CrudRepository<Person, String> {
     fun findByNameLike(name: String): List<Person>
+
+
+     override fun findAll():List<Person>;
 }
